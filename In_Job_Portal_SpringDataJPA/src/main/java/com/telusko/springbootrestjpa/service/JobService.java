@@ -146,6 +146,14 @@ public class JobService {
 			repo.saveAll(jobs);
 			
 		}
+		
+		
+		public List<JobPostJPA> search(String keyword) {
+			
+			return repo.findByPostProfileContainingOrPostDescContaining(keyword,keyword);
+		}
+
+
 
 
 

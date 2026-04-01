@@ -5,6 +5,7 @@ import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,7 @@ import com.telusko.springbootrestjpa.model.JobPostJPA;
 import com.telusko.springbootrestjpa.service.JobService;
 
 @RestController	
+@CrossOrigin(origins = "http://localhost:3000")
 public class JobRestJPAController {
 	
 	@Autowired
@@ -72,6 +74,13 @@ public class JobRestJPAController {
 	public String loadData() {
 		service.load();
 		return "success";
+	}
+	
+	
+	@GetMapping("jobPosts/keyword/{keyword}")
+	public List<JobPostJPA> searchByKeyword(@PathVariable("keyword") String keyword){
+		return service.search(keyword);
+		
 	}
 
 
