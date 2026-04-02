@@ -68,8 +68,49 @@ public class ProductService implements IProductService
 	@Override
 	public Long getTotalProductsCount()
 	{
-		
+		//System.out.println("Implemeting class of repo "+ repo.getClass().getName());
 		return repo.count();
+	}
+	
+	
+	@Override
+	public String deleteProductById(Integer id)
+	{
+		Optional<Product> optional = repo.findById(id);
+		if(optional.isPresent())
+		{
+			repo.deleteById(id);
+			return "Product with Id "+id+ " is deleted";
+		}
+		else
+		{
+			return "Product with Id "+id+ " is not in records";
+		}
+		
+	}
+
+	@Override  //1,2,3,4  ==> 3,4
+	public String deleteProductsByIds(List<Integer> ids) 
+	{
+		List<Product> products = (List<Product>) repo.findAllById(ids);
+		if(products.size()!=0)
+		{
+			repo.deleteAllById(ids);
+			return "All Products records with given ids deleted";
+		}
+		else
+		{
+			return "Product info with given ids are not in records to delete";
+		}
+//		if(products.size()==ids.size())
+//		{
+//			repo.deleteAllById(ids);
+//			return "All Products records with given ids deleted";
+//		}
+//		else
+//		{
+//			return "Product info with given ids are not in records to delete";
+//		}
 	}
 
 }

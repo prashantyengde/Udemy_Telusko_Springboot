@@ -43,6 +43,13 @@ public class Datajpa1crudApplication {
 	else
 		System.out.println("Product not available");
 	
+	int id=8;
+	System.out.println(service.deleteProductById(id));
+//	List<Integer> ids=Arrays.asList(2,4,1);
+//	String status=service.deleteProductsByIds(ids);
+//	System.out.println(status);
+	
+	
 	}
 
 }
