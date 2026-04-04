@@ -23,6 +23,13 @@ public class ProductController {
     public ResponseEntity<List<Product>> getProducts() {
         return new ResponseEntity<>(productService.getAllProducts(), HttpStatus.OK);
     }
+    
+    @GetMapping("/product")
+    public ResponseEntity<List<Product>> getProduct()
+    {
+    	
+    	return new ResponseEntity<>(productService.getAllProducts(),HttpStatus.OK);
+    }
 
     @GetMapping("/product/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable int id) {
