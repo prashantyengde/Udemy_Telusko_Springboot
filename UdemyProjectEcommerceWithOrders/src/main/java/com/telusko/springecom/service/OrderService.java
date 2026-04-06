@@ -28,6 +28,7 @@ public class OrderService {
     @Autowired
     private OrderRepo orderRepo;
 
+    @Transactional
     public OrderResponse placeOrder(OrderRequest request) {
 
         Order order = new Order();

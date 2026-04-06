@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:5173")
 public class ProductController {
 
     @Autowired
@@ -89,4 +89,8 @@ public class ProductController {
         System.out.println("searching with :" + keyword);
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
+    
+    
+    
+    
 }
