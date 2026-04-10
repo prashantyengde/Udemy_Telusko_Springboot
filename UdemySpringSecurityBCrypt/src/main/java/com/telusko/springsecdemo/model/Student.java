@@ -1,4 +1,4 @@
-package com.telusko.springsecdemo;
+package com.telusko.springsecdemo.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

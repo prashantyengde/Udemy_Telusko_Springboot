@@ -16,7 +16,7 @@ import java.util.List;
 @RequestMapping("/api")
 @CrossOrigin(origins = "http://localhost:5173")
 public class ProductController {
-
+      
     @Autowired
     private ProductService productService;
 
